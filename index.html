@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rezaí — rotina de oração</title>
+  <meta name="description" content="Organize, marque e acompanhe sua rotina de oração, um dia de cada vez. Funciona offline, sem conta e sem rastreamento.">
+  <meta name="theme-color" content="#14243A">
+  <meta name="color-scheme" content="light dark">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Rezaí">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    /* Aplica o tema salvo antes da primeira pintura, evitando o "flash". */
+    try { var t = JSON.parse(localStorage.getItem('rezai:data')).settings.theme; if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <div class="app">
+    <aside class="side">
+      <div class="brand-box"><span data-brand></span><div><strong>Rezaí</strong><small>Um dia de cada vez</small></div></div>
+      <nav id="nav-side" aria-label="Principal"></nav>
+    </aside>
+    <div class="content">
+      <header class="topbar"><span data-brand></span><strong>Rezaí</strong></header>
+      <main id="main" tabindex="-1"></main>
+    </div>
+    <nav id="nav-bar" class="bar-nav" aria-label="Principal"></nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="dlg" class="dlg"><div id="dlg-body"></div></dialog>
+  <noscript><p style="padding:2rem;font-family:system-ui">O Rezaí precisa de JavaScript para funcionar. Todos os dados ficam apenas neste aparelho.</p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
